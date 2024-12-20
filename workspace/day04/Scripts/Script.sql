@@ -75,10 +75,36 @@ ORDER BY POSITION ;
 
 
 /* 선수들 중 포지션이 DF 선수들의 평균 키를 TEAM_ID 별로 조회하고 평균 키 오름차순으로 정렬하기 */
-/* 포지션이 MF인 선수들의 입단연도 별 평균 몸무게, 평균 키를 구한다.
- * 칼럼명은 입단연도, 평균 몸무게, 평균 키 로 표시한다.
- * 입단연도를 오름차순으로 정렬한다.
- * 단, 평균 몸무게는 70 이상 그리고 평균 키는 160 이상인 입단연도만 조회 */
+SELECT ROUND(AVG(HEIGHT),0)키, TEAM_ID 아이디 
+FROM PLAYER 
+WHERE POSITION = 'DF'  
+GROUP BY TEAM_ID 
+ORDER BY AVG(HEIGHT); 
+
+/* 포지션이 MF인 선수들의 입단연도 별 평균 몸무게, 평균 키를 구한다.*/
+SELECT AVG(HEIGHT) 키, AVG(WEIGHT) 몸무게, JOIN_YYYY 입단연도 
+FROM PLAYER 
+WHERE POSITION = 'MF'
+GROUP  BY JOIN_YYYY;
+
+  
+-- * 칼럼명은 입단연도, 평균 몸무게, 평균 키 로 표시한다.
+SELECT JOIN_YYYY 입단연도, AVG(WEIGHT) 평균몸무게, AVG(HEIGHT) 평균키
+FROM PLAYER 
+GROUP BY JOIN_YYYY ;
+
+
+
+-- * 입단연도를 오름차순으로 정렬한다.
+SELECT DISTINCT JOIN_YYYY 입단연도
+FROM PLAYER 
+ORDER BY JOIN_YYYY DESC;
+
+-- * 단, 평균 몸무게는 70 이상 그리고 평균 키는 160 이상인 입단연도만 조회 */
+SELECT DISTINCT JOIN_YYYY 입단연도
+FROM PLAYER 
+ORDER BY JOIN_YYYY DESC;
+
 /* PLAYER 테이블에서 TEAM_ID가 'K01'인 선수 중 POSITION이
  * 'GK'인 선수를 조회하기 SUB쿼리 사용하기 */
 /* PLAYER 테이블에서 평균 몸무게보다 더 많이 나가는 선수들 검색 (조건에 서브쿼리 사용) */
