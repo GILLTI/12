@@ -1,0 +1,47 @@
+<!-- 7번 : 내부스타일과 블록요소 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내부스타일과 블록요소</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      /* 블록요소는 차지하는 영역의 크기를 조절할 수 있다 */
+      border: 1px solid black;
+      /* border : 블록요소의 테두리를 설정하는 속성 
+        border : 굵기 형태 색상;
+        형태 : solid(직선), dotted(점선), dashed(긴 점선)*/
+      background-color: beige;
+
+      margin: 20px; 
+      /* 바깥쪽 여백 20px로 설정하면 상하좌우 모두 20px간격이 생긴다
+        margin은 요소와 요소 사이의 간격을 의미, 두 요소가 중복되는 경우에는 
+        40px가 아닌 20px간격만 떨어진다!!!(주의)*/
+      padding: 20px;
+      /* 안쪽 여백 -> 컨텐츠(내용)과 테두리사이의 여백을 의미한다*/
+    }
+    span{
+      width: 100px;
+      height: 100px;
+      margin:20px;
+      padding:20px;
+      border: 1px;
+
+    }
+  </style>
+</head>
+<body>
+  <!-- div{$}*5 -->
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <span>12월24일</span>
+  <span>12월25일</span>
+
+</body>
+</html>

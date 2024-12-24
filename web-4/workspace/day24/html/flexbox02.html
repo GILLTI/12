@@ -1,0 +1,57 @@
+<!-- 11번 : flexbox -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flexbox</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .main {
+      height: 500px;
+    }
+    .header {
+      height: 100px;
+      background-color: lightcyan;
+    }
+    .section-container {
+      display: flex;
+      height: 100%;
+    }
+    .aside {
+      width: 150px;
+      background-color: cadetblue;
+    }
+    .section {
+      width: 100%;
+      background-color: floralwhite;
+    }
+    .aside2{
+      width: 150px;
+      background-color: blueviolet;
+    }
+    .footer {
+      height: 100px;
+      background-color: lightpink;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="header">header</div>
+    <!-- header, footer 높이 : 100px 
+     main 높이 : 500px aside 너비 : 150px 나머지 section-->
+    <div class="section-container">
+      <div class="aside">aside</div>
+      
+      <div class="section">section</div>
+      <dic class="aside2">aside2</dic>
+    </div>
+    <div class="footer">footer</div>
+  </div>
+</body>
+</html>

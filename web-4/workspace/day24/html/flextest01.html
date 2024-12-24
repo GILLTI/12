@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Container 속성 연습</title>
+  <style>
+    .container {
+      display: flex; 
+      /* 기본 Flex 컨테이너 */
+      flex-wrap: nowrap; 
+      /* wrap, nowrap */
+      flex-direction: row; 
+      /* row, column  */
+      justify-content: space-around; 
+      /* center, space-between */
+      align-items: center; 
+      /* center, stretch, flex-start */
+      border: 2px solid black;
+      height: 300px;
+      width: 900px;
+      gap: 10px; 
+      /* 요소 간의 간격 */
+    }
+
+    .item {
+      width: 200px;
+      height: 200px;
+      background-color: lightcoral;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flex Container 속성 연습</h1>
+  <p>아래 컨테이너에서 Flexbox 속성 연습하기</p>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+  </div>
+</body>
+</html>

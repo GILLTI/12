@@ -1,0 +1,272 @@
+day24
+
+0. 복습
+1) HTML 구조
+	VS CODE 단축키 : ! + 엔터
+
+2) HTML 태그 
+	주석 : ctel + / 
+	제목태그 : <h1> ~ <h6>
+	굵게	<b>, <strong>
+	기울임	<i>, <em>
+	줄바꿈 	<br>
+	가로선	<hr>
+	리스크태그	<ol><li>순서ㅇ <ul><li>순서x
+	테이블태그	<table>
+	테이블제목태그<caption>
+	
+1. 태그 정리
+1) form 태그 , label 태그
+	사용자로부터 입력받기 위한 양식을 작성하는 태그를 통틀어 <form>태그라고 한다
+	<form action="" method="get|post">폼요소</form>
+	form 태그는 사용자에게 입력받은 데이터를 서버러 전송하기 위해 작성한다
+	입력받은 데이터를 폼데이터, 필드라고 부른다
+	속성
+		action : form 태그 내부 요소에 작성된 데이터를 처리할 서버쪽의 파일 주소를 작성한다
+		method : 서버에 데이터를 넘겨주는 방법을 작성한다	
+	
+2) label 태그
+	사용자가 입력하는 input 태그에 대한 설명이다
+	웹 접근성에 좋기 때문에 사용한다 
+	
+	방법1) label 태그에 for속성과 input 태그의 id속성을 사용하여 연결할 수 있다
+	<label for="name">이름</label>
+	<input id	
+
+	<label for="name">이름</label>
+		<input id="name">
+	속성
+		for : intput 태그의 속성인 id와 연결하여 사용할 수 있다	
+
+3) input 태그
+	실질적으로 사용자에게 입력을 받는 태그
+	<input type="사용할 타입">
+	form 태그에 작성해야 서버쪽에 데이터를 넘겨줄 수 있음
+	type 속성값에 따라 입력받는 방식이 바뀐다
+		text : 테스트 형태로 사용자에게 입력받는다(아이디, 이름, 주소 등)
+		password : 패스워드를 입력받는다(화면에 입력한 값이 보이지 않음)
+		date : 년, 월, 일을 선택하여 입력받는다
+		submit : 전송버튼 만든다
+		reset : 리셋버튼을 만든다	
+		file : 첨부파일 버튼을 만든다	
+		hidden : 화면에서는 보이지 않는 칸을 만든다
+		radio : 라디오 버튼을 만든다(여러 선택지 중 하나만 선택한다)
+		checkbox : 체크박스 버튼을 만든다(여러 선택지 중 여러개를 선택한다)
+
+4) fieldset 와 legend
+	fileset은 여러 label을 묶을 때 사용한다
+	legend는 fieldset의 설명을 나타낸다
+
+5) input 태그의 주요 속성	
+	autofocus	페이지에 진입시 자동으로 focus됨, 마우스 커서가 해당 input에서 깜빡임
+	readonly	읽기 전용 필드로 설정함, 사용자가 입력할 수 없음
+	disabled	해당 태그를 비활성화 시키며 필드 데이터를 서버에 전송하지 않음
+	placeholde	input에 힌트를 표시함
+			ex) 아이디를 입력하는 칸에 아이드를 입력하세요 등의 문구를 띄움
+	required	필수 필드로 설정한다(반드시 입력해야한다)
+			필드의 데이터들을 submit 버튼을 눌러서 전송할 때 필수 필드에 데이터가 있는지 확인하고
+			데이터가 없으면 넘어가지않고 알려준다
+	value		텍스트를 입력하는 input에 미리 데이터를 채울 수 있다
+			submit 버튼의 텍스트를 변경할 수도 있다
+			<input type="submit" value="보낸다">
+			체크박스나 라디오버튼에서 사용시에는 해당 입력요소가 선택되었을 때 서버로 전송되는 값이다
+			선택하지않으면 아무 데이터도 서버로 전송되지 않는다
+	name		서버쪽에 데이터를 보낼 때 데이터가 어떤 데이터인지 이름을 붙여서 보낸다	
+			체크박스나 라디오버튼에서 사용시에는 그룹화한다
+			라디오버튼 그룹에서 동일한 name을 가진 여러 버튼이 있을경우 한번에 하나의 값만 선택할 수 있다
+			체크박스 그룹에서 동일한 name을 가진 여러 버튼이 있을 경우 선택 된 값들이 배열형식으로 서버에 전달된다
+	checked		체크받스나 라디오버튼에서 기본값을 설정한다	
+
+6) select, option 태그
+	여러 옵션 중 하나를 선택하는 드롭다운 목록을 만드는 태그
+	
+	<select>
+		<option value="값1">내용1</option>
+		<option value="값1">내용2</option>
+	</select>
+	
+	option 태그의 value가 실질적으로 서버에 넘어가는 값이다
+	selected 속성을 이용하면 페이지 진입시 선택되는 기본값을 설정할 수 있다
+	
+7) textarea 태그
+	텍스트를 여러줄로 입력할 수 있는 영역을 만드는 태그
+	<textarea cols="가로너비" rows="세로길이">내용</textarea>
+
+
+8) button 태그	
+	버튼을 만드는 태그
+	<button type="submit | reset | button">내용</button>
+	
+2. 인라인/블록요소
+	요소를 여러관점으로 분류할 수 있다
+	그 중 가장 중요하게 봐야할 것은 인라인요소와 블록요소이다
+	HTML의 모든 요소는 인라인과 블록으로 나뉜다
+	CSS에서 인라인과 블록에 따른 처리를 하게 된다
+
+1) 인라인요소
+	내용물의 크기만큼만 영역을 차지하므로 다른 요소와 같은 줄에 위치할 수 있다
+	대표적인 span, img, a, strong 등이 있다
+
+2) 블록요소
+	내용물의 크기와 상관없이 한 줄을 다 차지하므로 다른 요소와 같은 줄에 위치할 수 없다
+	즉, 너비 속성이 100%를 차지하고 자동으로 줄바꿈이 된다
+	다른 요소를 하나의 블록으로 묶어주기 위해 사용한다
+	대표적인 div, h1~h6, p 등이 있다
+ 
+3. CSS( Cascading Style Sheets)
+	HTML로 만든 웹 문서의 스타일(디자인)을 담당한다
+	스타일이란 글꼴, 색상, 테두리, 정렬, 배치(레이아웃) 방법 등의 외관을 의미한다
+	HTML에서 제공하는 속성으로 간단한 스타일을 지정할 수 있다
+	그러나 내용과 디자인이 분리되어있어야 유지보수에 유리하므로 CSS를 사용하는 것이 더 좋다
+	
+1) CSS 형식
+	속성1: 속성값;
+	
+2) 스타일 적용하는 방법
+	- 인라인스타일 : 스타일을 적용시킬 태그에 style 속성을 사용한다	
+		인라인스타일은 간단하게 사용하기엔 좋으나 코드가 길어질수록 가독성이 떨어지며 css와 html이 뒤 섞여
+		유지보수가 매우 힘들어진다
+		<p style="color:red; background-color:black;">내용</p>
+		<span style="color:blue; background-color:yellow;">내용</span>
+
+	- 내부스타일 : <head> 영역에 <style></style>태그를 사용하여 각 요소들의 스타일을 정의한다
+		<head>
+			<title></title>
+			<style>
+			선택자 {
+				속성1: 속성값;
+				속성2: 속성값
+				}
+			</style>
+		</head>
+
+		* 선택자 : 어떤 요소를 선택하기 위해 사용하는 것
+
+	- 외부 스타일 : 별도의 css파일을 만들어 적용시킨다
+		css와 html을 완전히 분리하여 관리할 수 있기 때문에 가장 많이 사용하는 방식이다
+		css 파일을 html 파일에 적용시키기 위해서는 <head>영역에 <link> 태그를 사용해야 한다
+		<head>
+			<link rel="stylesheet" href="css 파일경로">
+			rel > 현재 파일과의 관계
+		</head>
+
+3) id와 class
+	id와 class 속성은 특정 태그들을 식별하고 그룹화하는데 사용한다
+	모든 태그에 사용가능한 속성이다
+
+- id
+	특정 태그에 식별 가능한 고유한 값을 부여한다
+	선택자로 사용할 때는 #id명으로 사용한다
+	
+- class
+	여러 태그를 하나의 집단(그룹화)으로 묶어준다
+	선택자로 사용할 때는 .class명으로 사용한다
+	하나의 태그에 id와 class 동시에 가질 수 있으며 class를 여러개도 가질 수 있다
+	주로 class를 많이 사용하며 id는 그 페이지에서 중요하고 유일한 요소에게 부여하는 것이 좋다 
+
+4. Box Model
+	HTML의 모든 요소는 일정한 영역을 차지하게 된다
+	CSS에서는 이런 영역을 Box Model이라고한다
+	
+1) 박스모델의 구성
+	margin : 바깥여백(테두리 밖의 여백)
+	border : 테두리
+	padding : 안쪽여백(컨텐츠와 테두리 사이의 여백)
+	contents : 컨텐츠의 영역
+	
+	블록요소의 박스모델 전체 설정되며 margin 설정 시 위아래(상하)간격은 중복적용 되지 않는다
+		width, height, 정렬 가능하다
+	인라인요소의 박스모델 전체 설정되며 margin 설정 시 좌우간격은 중복해서 적용된다
+		width, height, 정렬 되지 않는다
+
+2) 박스모델 css 속성
+- 내용(contents)
+	width : 너비;
+	height : 높이;
+	단위는 기본적으로 px단위이며 그 외에도 여러단위가 있다
+
+- border
+	border : 굵기 모양(형태) 색상;
+
+- padding
+	padding:4방향;
+	padding:상하 좌우;
+	padding: 상 좌우 하;
+	padding: 상 우 하 좌;
+
+- margin
+	margin: 4방향;
+	margin: 상하 좌우;
+	margin: 상 좌우 하;
+	margin: 상 우 하 좌;
+
+	 auto를 사용하면 요소를 중앙에 위치하게 할 수 있다
+   블록 요소를 세로로 배치하게 되면 margin이 중첩된다(겹쳐된다)
+
++) css 우선순위 규칙
+	0. ! important
+	1. 인라인스타일 html태그내에 style 속성에 작성된 스타일
+	2. id선택자	#id
+	3. 클래스 선택자, 속성 선택자 .class, [attr=value], :hover 등
+	4. 태그 선택자 p, h1, ..등
+	5. 전역선택자 *
+	
+	.div2	클래스	동일한 클래스라면 나중에 작성된 스타일로 적용
+	.div	클래스	
+	div	
+	#div1	아이디 1
+	
+5. flex box
+레이아웃을 만들 때 사용하는 속성
+	float
+	display의 flex box
+	grid
+	
+1) flex box
+	레이아웃을 만드는 하나의 방식이다
+	복잡하지 않게 유연하게 요소들의 크기와 순서를 정하여 배치할 수 있다
+	
+2) flex box의 구성
+	flex container 레이아웃을 적용하여 배치하려는 요소들을 감싸고 있는 부모 요소
+	flex item	실질적으로 배치하려는 요소이며 felx container의 자식요소이다
+			자식 요소인 flex item은 여러개 만들 수 있다
+	주축(main axis)	자식요소가 배치되는 방향
+	교차축(cross axis)	주축을 가로지르는 방향
+
+3) flex container 만들기
+	컨테이너로 사용할 부모 요소에 display:flex 속성을 지정한다 
+	
+4) flex cintainer 의 주요속성
+	배치하려는 요소들의 전체흐름, 정렬과 관련된 속성
+	
+-display
+	display: flex; 			flex cintainer를 지정하는 속성
+	flex-direction: row|column;	주축의 방향을 지정하는 속성
+	justify-content : center|space-between|space-around;	
+	컨테이너의 주축을 기준으로 아이템 정렬
+		center : 증알 정렬
+		space-between : 첫 아이템과 끝 아이템을 컨테이너 양쪽 끝에 배치하고 나머지 아이템들은 동일한 간격정렬 margin 이 없으면 완전히 끝으로 붙는다
+		space-around : 모든 아이템을 동일한 간격으로 정렬
+	align-items : center|space-between|space-around;
+	컨테이너의 교차축을 기준으로 정렬
+	flex-wrap : nowrap | wrap;	
+	컨테이너 내부의 요소들이 많거나 크기가 커서 컨테이너를 넘어거게 되었을 때 한줄로 보여줄지 여러줄로 보여줄것인지 지정하는 속성
+	nowrap : flex-wrap의 기본값, 줄바꿈을 하지 않고 한 줄로 보여준다
+		만약 컨테이너의 크기가 작다면 각각의 아이템의 크기가 줄어든다
+	wrap : 컨테이너의 크기가 작다면 여러줄로 보여준다 
+
+
+
+
+
+
+
+
+
+
+
+	  
+	
+
+
+

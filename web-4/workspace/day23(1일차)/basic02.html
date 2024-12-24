@@ -1,0 +1,30 @@
+<!-- 2번 : a태그 <a></a>, img 태그 <img />-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>a태그 : 링크 태그</h1>
+  <a href="http://www.naver.com">네이버</a>
+  <a href="http://www.naver.com" target="_ _blank">네이버</a><br>
+  <a href="D:/web_0900_kys/web_4/workspace/day23(1일차)/basic01.html">basic01</a><br>
+  <!-- 절대경로로 사용되는 경우 브라우저는 보안정책에 따라 로컬디스크 경로를 직접 열지 못하도록 제한하고 있다 -->
+  <a href="./basic01.html">basic01</a><br>
+  <!-- ./ 상대경로   -->
+  <h1>img태그 : 이미지 태그</h1>
+  <img src="./img\다운로드.png" alt="블랙잭" width="400" height="150">
+  <!--           경로        이미지 안나올때 설정    크기      크기 -->
+
+    <h1>img태그와 a태그 함께 사용</h1>
+    <a href="http://naver.com" target="_blank">
+      <img src="./img\다운로드.png">
+      <img src="" width="60%" height="300">
+    </a>
+    <!-- 링크로 넣어줄 땐 이미지 주소 복사로 진행한다! 
+      너비와 높이는 기본 px단위로 설정되고 %단위로도 사용가능-->
+
+</body>
+</html>

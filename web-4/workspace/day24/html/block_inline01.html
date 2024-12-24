@@ -1,0 +1,49 @@
+<!-- css 스타일-내부스타일 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css 내부스타일</title>
+  <style>
+     /* css 주석
+      * 은 모든 요소를 선택함
+    */
+    *{
+      background-color: silver;
+      font-size: 30px;
+    }
+    /* h1 태그선택자 사용가능 */
+    h1{
+      color:blue;
+      background-color:yellow;
+    }
+    /* #id명 id선택자 */
+    #span-id{
+      color:darkgoldenrod;
+    }
+    /* .class명 클래스선택자 */
+    .p-class{
+      background-color: skyblue;
+    }
+
+  </style>
+
+</head>
+<body>
+  <h1>
+    id와 class 속성
+  </h1>
+  <span id="span-id">span요소1</span>
+  <!-- 인라인 스타일로 -->
+  <span style="color: red; background-color: beige;">요소2</span>
+  <p class="p-class">p요소1</p>
+  <p style="color: blue; background-color:beige;">p요소2</p>
+  <!-- div{div요소$}*2 -->
+
+  <div class="p-class">div요소1</div>
+  <div style="color:darkblue; background-color: beige; ">div요소2</div>
+
+  
+</body>
+</html>
