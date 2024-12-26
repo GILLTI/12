@@ -107,7 +107,13 @@ ORDER BY JOIN_YYYY DESC;
 
 /* PLAYER 테이블에서 TEAM_ID가 'K01'인 선수 중 POSITION이
  * 'GK'인 선수를 조회하기 SUB쿼리 사용하기 */
+SELECT TEAM_ID 아이디, PLAYER_NAME  이름
+FROM PLAYER 
+WHERE PLAYER.TEAM_ID ='K01' AND POSITION = 'GK';
+
 /* PLAYER 테이블에서 평균 몸무게보다 더 많이 나가는 선수들 검색 (조건에 서브쿼리 사용) */
+
+
 /* PLAYER 테이블에서 정남일 선수가 소속된 팀의 선수들 조회*/
 /* PLAYER 테이블에서 평균 키보다 작은 선수 조회*/
 /*SCHEDULE 테이블에서 경기 일정이 

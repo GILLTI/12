@@ -65,6 +65,7 @@ CREATE TABLE TBL_MEMBER(
    CONSTRAINT MEMBER_PK PRIMARY KEY(MEM_ID)
 );
 
+SELECT * FROM TBL_MEMBER;
 SELECT * FROM TBL_BOOKS;
 SELECT * FROM TBL_RENTAL;
 
@@ -80,6 +81,7 @@ CREATE TABLE TBL_RENTAL(
 );
 
 
+
 INSERT INTO TBL_BOOKS 
 --VALUES(1, '위대한 개츠비', 'F.스콧 피츠제럴드');
 --VALUES(2, '해리포터와 마법사의 돌', 'J.K. 롤링');
@@ -93,7 +95,7 @@ VALUES
 --(2, '유리', '987-654-3210', 'bbb@koreait.com');
 --(3, '철수', '555-123-4567', 'ccc@koreait.com');
 --(4, '훈이', '777-888-9999', 'ddd@koreait.com');
---(5, '맹구', '555-777-3333', 'eee@koreait.com');
+(5, '맹구', '555-777-3333', 'eee@koreait.com');
 
 
 
@@ -104,7 +106,6 @@ VALUES
 --(3, 3, 2, TO_DATE('2023-12-13', 'YYYY-MM-DD'), TO_DATE('2023-12-20', 'YYYY-MM-DD'));
 --(4, 4, 4, TO_DATE('2023-12-20', 'YYYY-MM-DD'), TO_DATE('2023-12-27', 'YYYY-MM-DD'));
 (5, 5, 5, TO_DATE('2023-12-22', 'YYYY-MM-DD'), TO_DATE('2023-12-29', 'YYYY-MM-DD'));
-
 SELECT * FROM TBL_RENTAL;
 
 -- 등가조인 : 두 개 이상의 테이블을 조인할 때, 특정 컬럼들의 값이 서로 같은 행만 결과로 반환
@@ -234,80 +235,4 @@ SELECT TB.BOOK_ID, TB.BOOK_TITLE, TB.BOOK_AUTHOR, TP.BP_ID, TP.BP_PRICE
 FROM TBL_BOOKS tb 
 FULL OUTER JOIN TBL_BOOKPRICE TP
 ON TB.BOOK_ID  = TP.BP_ID;
-   
---SQL 실행순서
---FROM -> ON -> JOIN -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
--- FROM : 테이블이나 뷰의 데이터 가져오기
--- ON : JOIN절의 조건 평가
--- JOIN : 지정된 조건에 따라 두 개 이상의 테이블을 조인
--- WHERE : 조인 결과에서 조건에 맞는 행을 필터링
--- GROUP BY : 데이터 그룹화(집계함수와 주로 사용)
--- HAVING : GROUP BY로 그룹화된 데이터에 대해 조건 적용
--- SELECT : 조회할 컬럼을 선택(집계함수, 별칭)
--- ORDER BY : 최종 결과를 정렬(ASC, DESC)
-
--- 테이블을 먼저 가져와서 대입하고 ON절로 비교
--- ON절과 WHERE절의 결과가 같다면 ON절만 사용
-
-CREATE TABLE TBL_BOOKPRICE(
-   BP_ID NUMBER,
-   BP_PRICE NUMBER,
-   CONSTRAINT BP_PK PRIMARY KEY(BP_ID)
-);
-
-INSERT INTO TBL_BOOKPRICE
---VALUES(1, 15000);
---VALUES(2, 18000);
---VALUES(3, 14000);
---VALUES(4, 17000);
-
-SELECT * FROM TBL_BOOKS tb;
-SELECT * FROM TBL_BOOKPRICE;
-
--- 외부조인
-SELECT * FROM TBL_BOOKS tB;
-
-CREATE TABLE TBL_BOOKPRICE(
-   BP_ID NUMBER,
-   BP_PRICE NUMBER,
-   CONSTRAINT BP_PK PRIMARY KEY(BP_ID)
-);
-
-
-INSERT INTO TBL_BOOKPRICE
---VALUES(1, 15000);
---VALUES(2, 18000);
---VALUES(3, 14000);
---VALUES(4, 17000);
-
-SELECT * FROM TBL_BOOKS tB;
-SELECT * FROM TBL_BOOKPRICE;
-
--- 1) 왼쪽 외부조인(LEFT OUTER JOIN)
--- BOOKS 테이블 기준 왼쪽 외부조인을 수행하고 BOOKSPRICE 테이블의 데이터를 포함
-SELECT TB.BOOK_ID, TB.BOOK_TITLE, TB.BOOK_AUTHOR, TP.BP_ID, TP.BP_PRICE
-FROM TBL_BOOKS tb 
-LEFT OUTER JOIN TBL_BOOKPRICE TP
-ON TB.BOOK_ID = TP.BP_ID;
-
---2) 오른쪽 외부조인(RIGHT OUTER JOIN)
--- BOOKPRICE 기준으로 오른쪽 외부조인을 수행하고 BOOKS테이블의 데이터를 포함
-SELECT TB.BOOK_ID, TB.BOOK_TITLE, TB.BOOK_AUTHOR, TP.BP_ID, TP.BP_PRICE
-FROM TBL_BOOKS tb 
-RIGHT JOIN TBL_BOOKPRICE TP
-ON TB.BOOK_ID = TP.BP_ID;
-
-INSERT INTO TBL_BOOKS tb
-VALUES(10, 'DBMS', 'DB');
-INSERT INTO TBL_BOOKPRICE
---VALUES(5, 20000);
---VALUES(6, 16000);
-VALUES(7, 20000);
-SELECT * FROM TBL_BOOKPRICE;
-
--- 완전 외부조인(FULL OUTER JOIN) : 왼쪽 테이블과 오른쪽 테이블의 데이터를 모두 포함
--- 어느 한쪽에만 데이터가 있는 경우에도 결과에 포함된다
-SELECT TB.BOOK_ID, TB.BOOK_TITLE, TB.BOOK_AUTHOR, TP.BP_ID, TP.BP_PRICE
-FROM TBL_BOOKS tb 
-FULL OUTER JOIN TBL_BOOKPRICE TP
-ON TB.BOOK_ID  = TP.BP_ID;
+ 
